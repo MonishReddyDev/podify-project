@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // Set the JavaScript version to output
+    "module": "commonjs", // Use CommonJS for modules
+    "rootDir": "./src", // Specify the root directory of input files
+    "outDir": "./dist", // Redirect output structure to the `dist` directory
+    "strict": true, // Enable all strict type-checking options
+    "esModuleInterop": true, // Enable interoperability between CommonJS and ES Modules
+    "forceConsistentCasingInFileNames": true, // Ensure file names are case-consistent
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "baseUrl": "./", // This should be the root of your project
+    "paths": {
+      "@models/*": ["src/models/*"],
+      "@controllers/*": ["src/controllers/*"],
+      "@utils/*": ["src/utils/*"]
+    }
+  }
+}
