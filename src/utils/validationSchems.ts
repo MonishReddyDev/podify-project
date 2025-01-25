@@ -83,3 +83,30 @@ export const AudioValidationSchema = yup.object().shape({
     .oneOf(categories, "Invalid Category")
     .required("Category is missing!"),
 });
+
+export const NewPlaylistValidationSchema = yup.object().shape({
+  title: yup.string().required("Title is missing!"),
+  resId: yup.string().transform(function (value) {
+    return this.isType(value) && isValidObjectId(value) ? value : ""; //if we have the valid value we return that valuse else return empty string
+  }),
+  visibility: yup
+    .string()
+    .oneOf(["public", "private"], "Visibility must be public or private!")
+    .required("Visibility is missing!"),
+});
+
+export const OldPlaylistValidationSchema = yup.object().shape({
+  title: yup.string().required("Title is missing!"),
+  //this is going to validate the audio id
+  item: yup.string().transform(function (value) {
+    return this.isType(value) && isValidObjectId(value) ? value : ""; //if we have the valid value we return that valuse else return empty string
+  }),
+  //this is going to validate the playlist id
+  id: yup.string().transform(function (value) {
+    return this.isType(value) && isValidObjectId(value) ? value : ""; //if we have the valid value we return that valuse else return empty string
+  }),
+  visibility: yup
+    .string()
+    .oneOf(["public", "private"], "Visibility must be public or private!"),
+  // .required("Visibility is missing!"),
+});

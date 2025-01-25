@@ -45,3 +45,6 @@ export const uploadToS3 = async (
 
   return result; // Return the URL of the uploaded file
 };
+
+//Home work
+const getBucketDocuments = async () => {};

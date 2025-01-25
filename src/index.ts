@@ -6,6 +6,7 @@ import { PORT } from "@utils/variables";
 import morgan from "morgan";
 import audioRouter from "../src/routers/audio";
 import favoriteRouter from "../src/routers/favorite";
+import PlayListRouter from "../src/routers/playlist";
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(express.static("src/public"));
 app.use("/auth", authrouter);
 app.use("/audio", audioRouter);
 app.use("/favorite", favoriteRouter);
+app.use("/playlist", PlayListRouter);
 
 //Port
 const PORTN = PORT || 8082;

@@ -3,6 +3,7 @@ import { Model, model, models, ObjectId, Schema } from "mongoose";
 
 
 export interface AudioDocument<T = ObjectId> {
+  [x: string]: any;
   _id: ObjectId;
   title: string;
   about: string;
